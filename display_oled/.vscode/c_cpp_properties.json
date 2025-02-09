@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "name": "Raspberry Pi Pico + CMSIS",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:PICO_SDK_PATH}/**",
+                "${workspaceFolder}/CMSIS_5/CMSIS/DSP/Include",  // Novo
+                "${workspaceFolder}/CMSIS_5/CMSIS/Core/Include"  // Novo
+            ],
+            "forcedInclude": [
+                "${workspaceFolder}/CMSIS_5/CMSIS/Core/Include/cmsis_compiler.h" // Novo
+            ],
+            "defines": [
+                "ARM_MATH_CM0PLUS",               // Novo (específico para RP2040)
+                "PICO_BOARD=\"pico_w\""           // Novo (se usar Pico W)
+            ],
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "cStandard": "gnu11",                 // Alterado para padrão GNU
+            "cppStandard": "gnu++17",             // Alterado para padrão GNU
+            "intelliSenseMode": "linux-gcc-arm",  // Modo mais específico
+            "browse": {                           // Novo (opcional)
+                "path": [
+                    "${workspaceFolder}",
+                    "${env:PICO_SDK_PATH}",
+                    "${workspaceFolder}/CMSIS_5"
+                ]
+            }
+        }
+    ],
+    "version": 4
+}
